@@ -28,6 +28,7 @@ namespace CarBooking.Application.Features.CQRS.Handlers.LocationHandler
                 updatedLocation.ContactNumber = request.ContactNumber;
                 updatedLocation.Address = request.Address;
                 updatedLocation.City = request.City;
+                await _locationRepository.UpdateAsync(updatedLocation);
                 return new Response<Location>(true,"Location is updated successfully",default);
             }
             return new Response<Location>(false, "Location is not found", default);

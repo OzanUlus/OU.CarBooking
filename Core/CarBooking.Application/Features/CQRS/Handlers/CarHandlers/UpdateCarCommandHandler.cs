@@ -36,6 +36,8 @@ namespace CarBooking.Application.Features.CQRS.Handlers.CarHandlers
             updatedCar.FuelType = request.FuelType;
             updatedCar.SeatCount = request.SeatCount;
 
+            await _carRepository.UpdateAsync(updatedCar);
+
             return new Response<Car>(true, "Car is updated successfully", default);
 
 
