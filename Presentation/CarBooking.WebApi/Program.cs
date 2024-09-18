@@ -1,7 +1,12 @@
+using CarBooking.Application.Features.CQRS.Queries.BrandQueries;
+using CarBooking.Application.Interfaces;
+using CarBooking.Application.Mapping;
 using CarBooking.Core.Entities;
+using CarBooking.Persistance.Concrete;
 using CarBooking.Persistance.Context;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +33,19 @@ builder.Services.AddIdentity<AppUser, AppRole>(options =>
 .AddDefaultTokenProviders();
 
 builder.Services.AddControllers();
+builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+builder.Services.AddScoped<IBrandRepository, BrandRepository>();
+
+
+
+builder.Services.AddAutoMapper(typeof(BrandProfile).Assembly);
+
+
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetAllBrandQueryRequest).Assembly));
+
+
+
+
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

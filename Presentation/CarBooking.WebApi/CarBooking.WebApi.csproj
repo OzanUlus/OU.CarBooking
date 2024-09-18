@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\Core\CarBooking.Application\CarBooking.Application.csproj" />
     <ProjectReference Include="..\..\Infrastructure\CarBooking.Persistance\CarBooking.Persistance.csproj" />
   </ItemGroup>
