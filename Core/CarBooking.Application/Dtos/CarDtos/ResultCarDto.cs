@@ -17,8 +17,8 @@ namespace CarBooking.Application.Dtos.CarDtos
         public string Model { get; set; }
         public string Yaer { get; set; }
         public string LicensePlate { get; set; }
-        public TransmissionType TransmissionType { get; set; }
-        public FuelType FuelType { get; set; }
+        public string TransmissionType { get; set; }
+        public string FuelType { get; set; }
         public int SeatCount { get; set; }
         public decimal PricePerDay { get; set; }
         public bool AvailabilityStatus { get; set; }

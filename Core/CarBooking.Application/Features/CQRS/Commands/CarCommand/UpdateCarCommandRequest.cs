@@ -1,13 +1,15 @@
-﻿using CarBooking.Core.Enums;
+﻿using CarBooking.Application.Response;
+using CarBooking.Core.Entities;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarBooking.Core.Entities
+namespace CarBooking.Application.Features.CQRS.Commands.CarCommand
 {
-    public class Car
+    public class UpdateCarCommandRequest : IRequest<IResponse<Car>>
     {
         public int CarId { get; set; }
         public string Model { get; set; }
@@ -18,16 +20,7 @@ namespace CarBooking.Core.Entities
         public int SeatCount { get; set; }
         public decimal PricePerDay { get; set; }
         public bool AvailabilityStatus { get; set; }
-
-
-        #region Nav Property
-        public Brand Brand { get; set; }
         public int BrandId { get; set; }
-        public Location Location { get; set; }
         public int LocationId { get; set; }
-        public IEnumerable<Image> Images { get; set; }
-        public IEnumerable<Reservation> Reservations { get; set; }
-        public IEnumerable<CarReview> CarReviews { get; set; }
-        #endregion
     }
 }
