@@ -15,6 +15,7 @@ namespace CarBooking.Core.Entities
         #region Nav Property
         public Car Car { get; set; }
         public int CarId { get; set; }
+
         #endregion
     }
 }

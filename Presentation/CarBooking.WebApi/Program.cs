@@ -38,6 +38,7 @@ builder.Services.AddScoped<IBrandRepository, BrandRepository>();
 builder.Services.AddScoped<ICarRepository, CarRepository>();
 builder.Services.AddScoped<ILocationRepository, LocationRepository>();
 builder.Services.AddScoped<ICarReviewRepository, CarReviewRepository>();
+builder.Services.AddScoped<IImageRepository, ImageRepository>();
 
 
 
