@@ -26,8 +26,7 @@ namespace CarBooking.Persistance.Configurations
             builder.Property(r => r.CreatedDate)
                    .IsRequired();
 
-            builder.Property(r => r.UpdatedDate)
-                   .IsRequired();
+            
 
           
             builder.HasOne(r => r.AppUser)
