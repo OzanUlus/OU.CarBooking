@@ -12,7 +12,7 @@ namespace CarBooking.Application.Dtos.PaymentDtos
     {
         public int PaymentId { get; set; }
         public decimal Amount { get; set; }
-        public PaymentStatus PaymentStatus { get; set; }
+        
         public DateTime PaymentDate { get; set; }
 
 

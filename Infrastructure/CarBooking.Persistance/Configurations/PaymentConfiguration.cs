@@ -19,9 +19,7 @@ namespace CarBooking.Persistance.Configurations
                    .HasColumnType("decimal(18,2)");
 
 
-            builder.Property(p => p.PaymentStatus)
-                   .IsRequired();
-
+            
 
             builder.Property(p => p.PaymentDate)
                    .IsRequired();
