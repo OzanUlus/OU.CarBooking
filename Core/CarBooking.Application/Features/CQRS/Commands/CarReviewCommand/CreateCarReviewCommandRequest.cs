@@ -11,7 +11,7 @@ namespace CarBooking.Application.Features.CQRS.Commands.CarReviewComponent
 {
     public class CreateCarReviewCommandRequest : IRequest<IResponse<CarReview>>
     {
-        public int CarReviewId { get; set; }
+       
         public int Rating { get; set; }
         public string Comment { get; set; }
         public DateTime CreatedDate { get; set; }

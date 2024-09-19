@@ -18,7 +18,7 @@ namespace CarBooking.Application.Dtos.CarReviewDtos
         public int UserId { get; set; }
         public ResultCarDto Car { get; set; }
 
-        public int Carıd { get; set; }
+        public int CarId { get; set; }
 
     }
 }
