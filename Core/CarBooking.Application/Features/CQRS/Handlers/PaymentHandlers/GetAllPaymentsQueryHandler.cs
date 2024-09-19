@@ -26,6 +26,7 @@ namespace CarBooking.Application.Features.CQRS.Handlers.PaymentHandlers
         public async Task<IResponse<List<ResultPaymentDto>>> Handle(GetAllPaymentsQueryRequest request, CancellationToken cancellationToken)
         {
             var payments = await _paymentRepository.GetAllAsync();
+            if (payments == null) return new Response<List<ResultPaymentDto>>(false,"Payments are not found",default);
             var paymentsDto = _mapper.Map<List<ResultPaymentDto>>(payments);
             return new Response<List<ResultPaymentDto>>(true,"Payments are listed successfully",paymentsDto);
         }

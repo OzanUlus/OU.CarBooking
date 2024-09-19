@@ -26,6 +26,7 @@ namespace CarBooking.Application.Features.CQRS.Handlers.ImageHandlers
         public async Task<IResponse<List<ResultImageDto>>> Handle(GetAllImagesQueryRequest request, CancellationToken cancellationToken)
         {
             var images = await _imageRepository.GetAllAsync();
+            if (images == null) return new Response<List<ResultImageDto>>(false,"Images are not found",default);
             var imagesDto = _mapper.Map<List<ResultImageDto>>(images);
             return new Response<List<ResultImageDto>>(true,"Images are listed successfully",imagesDto);
         }

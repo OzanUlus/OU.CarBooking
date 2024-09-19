@@ -26,6 +26,7 @@ namespace CarBooking.Application.Features.CQRS.Handlers.CarReviewHandlers
         public async Task<IResponse<List<ResultCarReviewDto>>> Handle(GetAllCarReviewsQueryRequest request, CancellationToken cancellationToken)
         {
             var carReviews = await _carReviewRepository.GetAllAsync();
+            if (carReviews == null) return new Response<List<ResultCarReviewDto>>(false,"Car reviews are not found",default);
             var reviewDto = _mapper.Map<List<ResultCarReviewDto>>(carReviews);
             return new Response<List<ResultCarReviewDto>>(true,"Car reviews are listed successfully",reviewDto);
         }

@@ -26,8 +26,9 @@ namespace CarBooking.Application.Features.CQRS.Handlers.LocationHandler
         public async Task<IResponse<ResultLocationDto>> Handle(GetLocationQueryRequest request, CancellationToken cancellationToken)
         {
             var location = await _locationRepository.GetByIdAsync(request.LocationId);
+            if (location == null) return new Response<ResultLocationDto>(false,"Location is not found",default);
             var locationDto = _mapper.Map<ResultLocationDto>(location);
-            return new Response<ResultLocationDto>(true,"Location is found",locationDto);
+            return new Response<ResultLocationDto>(true,"Location is found successfully",locationDto);
         }
     }
 }

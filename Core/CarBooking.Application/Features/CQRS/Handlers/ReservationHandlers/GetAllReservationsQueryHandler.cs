@@ -26,6 +26,7 @@ namespace CarBooking.Application.Features.CQRS.Handlers.ReservationHandlers
         public async Task<IResponse<List<ResultReservationDto>>> Handle(GetAllReservationsQueryRequest request, CancellationToken cancellationToken)
         {
             var reservations = await _reservationRepository.GetAllAsync();
+            if (reservations == null) return new Response<List<ResultReservationDto>>(false,"Reservations are not found",default);
             var reservationsDto = _mapper.Map<List<ResultReservationDto>>(reservations);
             return new Response<List<ResultReservationDto>>(true,"Reservations are listed successfully",reservationsDto);
         }

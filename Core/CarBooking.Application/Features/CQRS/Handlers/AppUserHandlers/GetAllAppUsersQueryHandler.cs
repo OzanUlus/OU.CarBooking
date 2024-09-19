@@ -27,6 +27,7 @@ namespace CarBooking.Application.Features.CQRS.Handlers.AppUserHandlers
         public async Task<IResponse<List<ResultAppUserDto>>> Handle(GetAllAppUsersQueryRequest request, CancellationToken cancellationToken)
         {
             var users = _userManager.Users.ToList();
+            if (!users.Any()) return new Response<List<ResultAppUserDto>>(false,"Users not found",default);  
             var usersDto = _mapper.Map<List<ResultAppUserDto>>(users);
             return new Response<List<ResultAppUserDto>>(true,"Users are listed successfully",usersDto);
         }

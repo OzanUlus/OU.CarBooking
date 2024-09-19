@@ -26,6 +26,7 @@ namespace CarBooking.Application.Features.CQRS.Handlers.BrandHandlers
         public async Task<IResponse<ResultBrandDtos>> Handle(GetBrandQueryRequest request, CancellationToken cancellationToken)
         {
             var brand = await _brandRepository.GetByIdAsync(request.BrandId);
+            if (brand == null) return new Response<ResultBrandDtos>(false,"Brand not found",default);
             var dto = _mapper.Map<ResultBrandDtos>(brand);
             return new Response<ResultBrandDtos>(true, "succesfully", dto); 
         }

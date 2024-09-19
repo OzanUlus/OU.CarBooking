@@ -22,7 +22,7 @@ namespace CarBooking.Application.Features.CQRS.Handlers.BrandHandlers
 
         public async Task<IResponse<Brand>> Handle(DeleteBrandCommandRequest request, CancellationToken cancellationToken)
         {
-            await _brandRepository.DeleteAsync(request.BrandId);
+           await _brandRepository.DeleteAsync(request.BrandId);
             return new Response<Brand>(true,"Brand is deleted succesfully",default);
         }
     }
