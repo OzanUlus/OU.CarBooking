@@ -13,8 +13,6 @@ namespace CarBooking.Application.Dtos.BrandDtos
         public string BrandName { get; set; }
         public string BrandImageUrl { get; set; }
 
-        public ResultCarDto Car { get; set; }
-
-        IEnumerable<ResultCarDto> Cars { get; set; }
+       
     }
 }

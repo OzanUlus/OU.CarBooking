@@ -32,6 +32,19 @@ builder.Services.AddIdentity<AppUser, AppRole>(options =>
 .AddEntityFrameworkStores<CarBookingContext>()
 .AddDefaultTokenProviders();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigins",
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:5173") // React uygulamanýn çalýþtýðý origin
+                   .AllowAnyHeader()
+                   .AllowAnyMethod();
+        });
+});
+
+
+
 builder.Services.AddControllers();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<IBrandRepository, BrandRepository>();
@@ -68,6 +81,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowSpecificOrigins"); // CORS politikasýný burada aktif et
 
 app.UseAuthorization();
 
