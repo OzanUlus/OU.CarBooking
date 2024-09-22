@@ -14,6 +14,7 @@ namespace CarBooking.Application.Mapping
         public BrandProfile()
         {
             CreateMap<Brand,ResultBrandDtos>().ReverseMap();
+            CreateMap<Brand,CreateBrandDto>().ReverseMap();
 
            
         }

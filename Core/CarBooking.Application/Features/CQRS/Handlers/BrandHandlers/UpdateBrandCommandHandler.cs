@@ -28,7 +28,7 @@ namespace CarBooking.Application.Features.CQRS.Handlers.BrandHandlers
             updatedBrand.BrandName = request.BrandName;
             updatedBrand.BrandImageUrl = request.BrandImageUrl;
             await _brandRepository.UpdateAsync(updatedBrand);
-            return new Response<Brand>(true,"Brand is updated",default);
+            return new Response<Brand>(true,"Brand is updated",updatedBrand);
 
         }
     }

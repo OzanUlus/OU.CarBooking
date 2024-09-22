@@ -39,7 +39,7 @@ namespace CarBooking.WebApi.Controllers
         }
 
         [HttpPut("{brandId}")]
-        public async Task<IActionResult> UpdateBrand([FromRoute] int brandId,UpdateBrandCommandRequest request)
+        public async Task<IActionResult> UpdateBrand(UpdateBrandCommandRequest request)
         {
             var result = await _mediator.Send(request);
             return Ok(result);
