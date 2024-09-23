@@ -37,7 +37,7 @@ namespace CarBooking.WebApi.Controllers
             return Created("", result);
         }
 
-        [HttpPut]
+        [HttpPut("{carId}")]
         public async Task<IActionResult> UpdateCar(UpdateCarCommandRequest request)
         {
             var result = await _mediator.Send(request);

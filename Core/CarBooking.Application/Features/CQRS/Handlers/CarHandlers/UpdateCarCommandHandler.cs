@@ -38,7 +38,7 @@ namespace CarBooking.Application.Features.CQRS.Handlers.CarHandlers
 
             await _carRepository.UpdateAsync(updatedCar);
 
-            return new Response<Car>(true, "Car is updated successfully", default);
+            return new Response<Car>(true, "Car is updated successfully", updatedCar);
 
 
         }

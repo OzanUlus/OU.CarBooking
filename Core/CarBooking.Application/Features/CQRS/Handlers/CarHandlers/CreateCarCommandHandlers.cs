@@ -22,11 +22,11 @@ namespace CarBooking.Application.Features.CQRS.Handlers.CarHandlers
 
         public async Task<IResponse<Car>> Handle(CreateCarCommandRequest request, CancellationToken cancellationToken)
         {
-            await _carRepository.CreateAsync(new Car
+            var car = new Car
             {
                 Model = request.Model,
                 AvailabilityStatus = request.AvailabilityStatus,
-                FuelType  = request.FuelType,
+                FuelType = request.FuelType,
                 LicensePlate = request.LicensePlate,
                 PricePerDay = request.PricePerDay,
                 SeatCount = request.SeatCount,
@@ -34,9 +34,10 @@ namespace CarBooking.Application.Features.CQRS.Handlers.CarHandlers
                 Yaer = request.Yaer,
                 BrandId = request.BrandId,
                 LocationId = request.LocationId,
-                
-            });
-            return new Response<Car>(true,"Car is created Successfully",default);
+            };
+            await _carRepository.CreateAsync(car);
+            
+            return new Response<Car>(true,"Car is created Successfully",car);
         }
     }
 } 
