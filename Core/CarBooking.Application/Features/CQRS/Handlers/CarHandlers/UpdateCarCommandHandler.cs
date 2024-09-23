@@ -31,7 +31,7 @@ namespace CarBooking.Application.Features.CQRS.Handlers.CarHandlers
             updatedCar.BrandId = request.BrandId;
             updatedCar.LocationId = request.LocationId;
             updatedCar.Model = request.Model;
-            updatedCar.Yaer = request.Yaer;
+            updatedCar.Year = request.Year;
             updatedCar.TransmissionType = request.TransmissionType;
             updatedCar.FuelType = request.FuelType;
             updatedCar.SeatCount = request.SeatCount;

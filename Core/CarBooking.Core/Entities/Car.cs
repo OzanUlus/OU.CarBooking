@@ -11,7 +11,7 @@ namespace CarBooking.Core.Entities
     {
         public int CarId { get; set; }
         public string Model { get; set; }
-        public string Yaer { get; set; }
+        public string Year { get; set; }
         public string LicensePlate { get; set; }
         public string TransmissionType { get; set; }
         public string FuelType { get; set; }

@@ -13,7 +13,7 @@ namespace CarBooking.Application.Features.CQRS.Commands.CarCommand
     {
        
         public string Model { get; set; }
-        public string Yaer { get; set; }
+        public string Year { get; set; }
         public string LicensePlate { get; set; }
         public string TransmissionType { get; set; }
         public string FuelType { get; set; }

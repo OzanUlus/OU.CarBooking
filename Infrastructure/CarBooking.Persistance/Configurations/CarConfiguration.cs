@@ -19,7 +19,7 @@ namespace CarBooking.Persistance.Configurations
                    .HasMaxLength(100);
 
 
-            builder.Property(c => c.Yaer)
+            builder.Property(c => c.Year)
                    .IsRequired()
                    .HasMaxLength(4);
 

@@ -31,7 +31,7 @@ namespace CarBooking.Application.Features.CQRS.Handlers.CarHandlers
                 PricePerDay = request.PricePerDay,
                 SeatCount = request.SeatCount,
                 TransmissionType = request.TransmissionType,
-                Yaer = request.Yaer,
+                Year = request.Year,
                 BrandId = request.BrandId,
                 LocationId = request.LocationId,
             };
