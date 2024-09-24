@@ -22,12 +22,14 @@ namespace CarBooking.Application.Features.CQRS.Handlers.ImageHandlers
 
         public async Task<IResponse<Image>> Handle(CreateImageCommandRequest request, CancellationToken cancellationToken)
         {
-            await _imageRepository.CreateAsync(new Image
+            var image = new Image
             {
                 CarId = request.CarId,
                 ImageUrl = request.ImageUrl,
-            });
-            return new Response<Image>(true,"Image is created successfully",default);
+            };
+            await _imageRepository.CreateAsync(image);
+            
+            return new Response<Image>(true,"Image is created successfully",image);
         }
     }
 }
