@@ -22,13 +22,16 @@ namespace CarBooking.Application.Features.CQRS.Handlers.LocationHandler
 
         public async Task<IResponse<Location>> Handle(CreateLocationCommandRequest request, CancellationToken cancellationToken)
         {
-            await _locationRepository.CreateAsync(new Location
+           
+            var location = new Location
             {
                 Address = request.Address,
                 City = request.City,
                 ContactNumber = request.ContactNumber,
-            });
-            return new Response<Location>(true,"Location is created successfully",default);
+            };
+
+            await _locationRepository.CreateAsync(location);
+            return new Response<Location>(true,"Location is created successfully",location);
         }
     }
 }
