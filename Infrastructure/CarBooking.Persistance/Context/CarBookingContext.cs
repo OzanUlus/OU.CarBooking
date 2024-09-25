@@ -34,6 +34,7 @@ namespace CarBooking.Persistance.Context
         public DbSet<CarReview> CarReviews { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<Image> Images { get; set; }
+        public DbSet<About> Abouts { get; set; }
     }
 
     
