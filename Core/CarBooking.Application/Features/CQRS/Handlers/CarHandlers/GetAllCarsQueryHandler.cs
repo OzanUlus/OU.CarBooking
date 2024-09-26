@@ -26,7 +26,7 @@ namespace CarBooking.Application.Features.CQRS.Handlers.CarHandlers
 
         public async Task<IResponse<List<ResultCarDto>>> Handle(GetAllCarsQueryRequest request, CancellationToken cancellationToken)
         {
-            var cars = await _carRepository.GetAllAsync();
+            var cars = await _carRepository.GetCarWithInformation();
             if (cars == null) return new Response<List<ResultCarDto>>(false,"Cars are not found",default);
             var dto = _mapper.Map<List<ResultCarDto>>(cars);
             return new Response<List<ResultCarDto>>(true,"Cars is listed successfully",dto);

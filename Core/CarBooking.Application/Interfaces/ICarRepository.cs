@@ -1,4 +1,5 @@
-﻿using CarBooking.Core.Entities;
+﻿using CarBooking.Application.Dtos.CarDtos;
+using CarBooking.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace CarBooking.Application.Interfaces
 {
     public interface ICarRepository : IRepository<Car>
     {
+        Task<List<Car>> GetCarWithInformation();
     }
 }

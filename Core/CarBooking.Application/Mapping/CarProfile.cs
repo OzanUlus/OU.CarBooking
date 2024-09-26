@@ -14,6 +14,7 @@ namespace CarBooking.Application.Mapping
         public CarProfile()
         {
             CreateMap<Car,ResultCarDto>().ReverseMap();
+            CreateMap<Car,GetCarWithInformationDto>().ReverseMap();
         }
     }
 }
