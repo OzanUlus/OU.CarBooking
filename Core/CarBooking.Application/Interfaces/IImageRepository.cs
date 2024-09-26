@@ -9,5 +9,6 @@ namespace CarBooking.Application.Interfaces
 {
     public interface IImageRepository : IRepository<Image>
     {
+        Task<List<Image>> GetAllImageWithCars();
     }
 }
