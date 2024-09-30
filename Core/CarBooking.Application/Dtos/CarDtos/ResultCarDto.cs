@@ -28,6 +28,7 @@ namespace CarBooking.Application.Dtos.CarDtos
         public ResultLocationDto Location { get; set; }
         public int LocationId { get; set; }
         IEnumerable<ResultCarReviewDto> CarReviews { get; set; }
-        IEnumerable<ResultImageDto> Images { get; set; }
+        
+        public List<string> Images { get; set; }
     }
 }

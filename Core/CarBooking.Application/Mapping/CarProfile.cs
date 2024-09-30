@@ -13,7 +13,8 @@ namespace CarBooking.Application.Mapping
     {
         public CarProfile()
         {
-            CreateMap<Car,ResultCarDto>().ReverseMap();
+            CreateMap<Car, ResultCarDto>()
+            .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Images.Select(img => img.ImageUrl)));
             CreateMap<Car,GetCarWithInformationDto>().ReverseMap();
         }
     }

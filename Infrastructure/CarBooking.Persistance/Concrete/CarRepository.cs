@@ -16,7 +16,7 @@ namespace CarBooking.Persistance.Concrete
 
         public async Task<List<Car>> GetCarByLocationId(int locationId)
         {
-            var response = await _context.Cars.Include(c=>c.Location).Where(c =>c.LocationId == locationId).ToListAsync();
+            var response = await _context.Cars.Include(c=>c.Images).Where(c=> c.LocationId == locationId).ToListAsync();
             return response;    
         }
 
