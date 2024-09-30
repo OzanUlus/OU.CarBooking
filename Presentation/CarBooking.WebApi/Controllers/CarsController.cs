@@ -29,6 +29,12 @@ namespace CarBooking.WebApi.Controllers
             var result = await _mediator.Send(new GetCarQueryRequest(CarId));
             return Ok(result);
         }
+        [HttpGet("GetCarbyLocationId/{locationId}")]
+        public async Task<IActionResult> GetCarbyLocationId(int locationId)
+        {
+            var result = await _mediator.Send(new GetCarByLocationIdQueryRequest(locationId));
+            return Ok(result);
+        }
 
         [HttpPost]
         public async Task<IActionResult> CreateCar(CreateCarCommandRequest request)

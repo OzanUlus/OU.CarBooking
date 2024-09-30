@@ -11,5 +11,7 @@ namespace CarBooking.Application.Interfaces
     public interface ICarRepository : IRepository<Car>
     {
         Task<List<Car>> GetCarWithInformation();
+        Task<List<Car>> GetCarByLocationId(int locationId);
+        
     }
 }
