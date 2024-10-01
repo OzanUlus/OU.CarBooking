@@ -12,6 +12,7 @@ namespace CarBooking.Application.Interfaces
     {
         Task<List<Car>> GetCarWithInformation();
         Task<List<Car>> GetCarByLocationId(int locationId);
+        Task<List<Car>> GetCarsByWithStatus();
         
     }
 }

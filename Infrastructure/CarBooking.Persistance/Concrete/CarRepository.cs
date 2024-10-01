@@ -20,6 +20,12 @@ namespace CarBooking.Persistance.Concrete
             return response;    
         }
 
+        public async Task<List<Car>> GetCarsByWithStatus()
+        {
+            var response = await _context.Cars.Include(c=>c.Images).Include(c=> c.Brand).Include(c=>c.Location).Where(c=>c.AvailabilityStatus == true).ToListAsync();
+            return response;
+        }
+
         public async Task<List<Car>> GetCarWithInformation()
         {
             var response = await _context.Cars.Include(x => x.Brand).Include(x=>x.Location).ToListAsync();

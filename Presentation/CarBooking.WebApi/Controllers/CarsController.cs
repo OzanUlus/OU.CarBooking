@@ -23,6 +23,13 @@ namespace CarBooking.WebApi.Controllers
             return Ok(result);
         }
 
+        [HttpGet("GetCarsByWithStatus")]
+        public async Task<IActionResult> GetCarsByWithStatus()
+        {
+            var result = await _mediator.Send(new GetCarsWithStatusQueryRequest());
+            return Ok(result);
+        }
+
         [HttpGet("{CarId}")]
         public async Task<IActionResult> GetCar(int CarId)
         {
