@@ -28,6 +28,17 @@ namespace CarBooking.WebApi.Controllers
 
             return BadRequest(result.Errors);
         }
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(LoginCommandRequest request)
+        {
+            var result = await _mediator.Send(request);
+            if (result==null)
+            {
+                return BadRequest("Email or password wrong");
+            }
+
+            return Ok(result);
+        }
 
         [HttpPut("update")]
         public async Task<IActionResult> UpdateUser(UpdateAppUserCommandRequest request )
