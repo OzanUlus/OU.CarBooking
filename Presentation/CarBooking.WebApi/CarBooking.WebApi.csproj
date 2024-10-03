@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\CarBooking.Application\CarBooking.Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\CarBooking.Infrastructure\CarBooking.Infrastructure.csproj" />
     <ProjectReference Include="..\..\Infrastructure\CarBooking.Persistance\CarBooking.Persistance.csproj" />
   </ItemGroup>
 

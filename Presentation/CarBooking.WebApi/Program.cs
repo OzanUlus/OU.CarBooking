@@ -1,16 +1,35 @@
 using CarBooking.Application.Features.CQRS.Queries.BrandQueries;
+using CarBooking.Application.Features.Tools;
 using CarBooking.Application.Interfaces;
 using CarBooking.Application.Mapping;
 using CarBooking.Core.Entities;
+
 using CarBooking.Persistance.Concrete;
 using CarBooking.Persistance.Context;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using System.Reflection;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
+{
+    opt.RequireHttpsMetadata = false;
+    opt.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidAudience = JWTTokenDefaults.ValidAudience,
+        ValidIssuer = JWTTokenDefaults.ValidIssuer,
+        ClockSkew = TimeSpan.Zero,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JWTTokenDefaults.Key)),
+        ValidateIssuerSigningKey = true,
+        ValidateLifetime = true,
+    };
+});
 
 builder.Services.AddDbContext<CarBookingContext>(opt =>
 {
@@ -57,6 +76,7 @@ builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 builder.Services.AddScoped<IAboutRepository, AboutRepository>();
 builder.Services.AddScoped<ISliderRepository, SliderRepository>();
 builder.Services.AddScoped<ICompanyInformationRepository, CompanyInformationRepository>();
+builder.Services.AddScoped<JWTTokenGenerator>();
 
 
 
